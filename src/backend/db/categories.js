@@ -8,20 +8,20 @@ import { v4 as uuid } from "uuid";
 export const categories = [
   {
     _id: uuid(),
-    categoryName: "fiction",
+    categoryName: "Plants",
     description:
-      "literature in the form of prose, especially novels, that describes imaginary events and people",
+      "Sustainable plants which requires less water and soil replacement.",
   },
   {
     _id: uuid(),
-    categoryName: "non-fiction",
+    categoryName: "Rugs",
     description:
-      "Non-fiction is writing that gives information or describes real events, rather than telling a story.",
+      "Rugs made up of jutes and  bio colors.",
   },
   {
     _id: uuid(),
-    categoryName: "horror",
+    categoryName: "Clothes",
     description:
-      "Meant to cause discomfort and fear for both the character and readers, horror writers often make use of supernatural and paranormal elements in morbid stories that are sometimes a little too realistic.",
+      "Clothing made with eco-friendly materials such as organic cotton or bamboo.",
   },
 ];
