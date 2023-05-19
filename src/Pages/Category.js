@@ -1,15 +1,16 @@
 import React from "react";
-
+import { categories } from "../backend/db/categories";
+import { ProductCard } from "../components/ProductCard";
 
 
 export default function Category() {
   return (
     <>
-      <h1> iPhones </h1>
-      <ul>
-       
-       Category will be here
-      </ul>
+      <h1> Categories </h1>
+      <ul>{categories.map((product)>(
+        <ProductCard {...product} noDetail />
+
+      ))}</ul>
     </>
   );
 }
