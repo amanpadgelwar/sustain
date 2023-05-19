@@ -1,5 +1,5 @@
 import React from "react";
-import phonesDB from "./phonesDB";
+
 
 
 export default function Category() {
