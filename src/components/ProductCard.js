@@ -4,10 +4,6 @@ import { Link } from "react-router-dom";
 
 export function ProductCard({
   id,
-  name,
-  price,
-  memory,
-  currency,
   details,
   noDetail,categoryName,description
 }) {
