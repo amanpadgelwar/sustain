@@ -7,10 +7,9 @@ export default function Category() {
   return (
     <>
       <h1> Categories </h1>
-      <ul>{categories.map((product)>(
-        <ProductCard {...product} noDetail />
+      
 
-      ))}</ul>
+  
     </>
   );
 }
