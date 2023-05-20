@@ -51,7 +51,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/category" element={<Category />} />
-        <Route path="/Mockapi" component={<Mockapi/>} />
+        <Route path="/Mockapi" element={<Mockapi/>} />
         <Route path="/wishlist" element={<WishList />} />
         <Route path="/cart" element={<Cart />} />
       </Routes>
