@@ -6,6 +6,7 @@ import WishList from "./Pages/WishList";
 import Cart from "./Pages/Cart";
 import { Routes, Route } from "react-router-dom";
 import { NavLink } from "react-router-dom";
+import Mockapi from "./Mockapi";
 
 const getActiveStyle = ({ isActive }) => ({
   margin: "1rem 0",
@@ -37,6 +38,9 @@ function App() {
         <NavLink style={getActiveStyle} to="/wishlist">
           WishList
         </NavLink>
+        <NavLink style={getActiveStyle} to="/Mockapi">
+          MockAPI
+        </NavLink>
       </nav>
       <header className="App-header">
        
@@ -47,7 +51,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/category" element={<Category />} />
-       
+        <Route path="/Mockapi" component={<Mockapi/>} />
         <Route path="/wishlist" element={<WishList />} />
         <Route path="/cart" element={<Cart />} />
       </Routes>
