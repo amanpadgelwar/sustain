@@ -7,6 +7,7 @@ import Cart from "./Pages/Cart";
 import { Routes, Route } from "react-router-dom";
 import { NavLink } from "react-router-dom";
 import Mockapi from "./Mockapi";
+import ProductDetail from "./Pages/ProductDetails";
 
 const getActiveStyle = ({ isActive }) => ({
   margin: "1rem 0",
@@ -54,6 +55,7 @@ function App() {
         <Route path="/Mockapi" element={<Mockapi/>} />
         <Route path="/wishlist" element={<WishList />} />
         <Route path="/cart" element={<Cart />} />
+        <Route path="/product/:productId" element={<ProductDetail />} />
       </Routes>
 
       </header>
