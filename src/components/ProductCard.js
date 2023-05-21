@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 export function ProductCard({
   id,
   details,
-  noDetail,categoryName,description
+  noDetail,categoryName,description,price,name,imgSrc
 }) {
   return (
     <li
