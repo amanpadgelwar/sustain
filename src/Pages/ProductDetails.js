@@ -28,9 +28,9 @@ export default function ProductDetail() {
   }, []);
 
   function getProductDetails(products, productId) {
-    <>
-    return products.find((product) => product.id === productId);
-    </>
+    
+    return (products.find((product) => (product.id === productId)));
+    
   }
 
   const product = getProductDetails(products.data, productId);
