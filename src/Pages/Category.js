@@ -31,8 +31,10 @@ const [categories,setCategories]=useState([]);
       {
         categories.map((item)=>(
        <ul>{
-
+        <>
         <li key={item.id}>{item.categoryName}</li>
+        <ProductCard {...item} noDetail/>
+        </>
        }</ul>
       ))
       }
