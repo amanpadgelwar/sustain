@@ -38,11 +38,12 @@ export default function ProductDetail() {
       
       {products.map((product)=>(
         <div>
-        <li>{product.name}</li>
-        <li>CategoryName:{product.categoryName}</li>
-    <li>Description{product.description}</li>
-    <li>Price:{product.price}</li>
-  <li>Image:{product.imageSrc}</li>
+        <h2>{product.name}
+        <p>CategoryName:{product.categoryName}</p>
+    <p>Description:{product.description}</p>
+    <p>Price:{product.price}</p>
+    <p>Image:{product.imageSrc}</p>
+  </h2>
   </div>
       )
       )

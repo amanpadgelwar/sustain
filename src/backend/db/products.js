@@ -1,14 +1,10 @@
 import { v4 as uuid } from "uuid";
 
-/**
- * Product Database can be added here.
- * You can add products of your wish with different attributes
- * */
-
+import { categories } from "./categories";
 export const products = [
   {
     id: uuid(),
-    categoryName: "Home",
+    categoryId: categories[0]._id,
     description: "Reusable bamboo toothbrush",
     price: "5.99",
     name: "Bamboo Toothbrush",
@@ -16,7 +12,7 @@ export const products = [
   },
   {
     id: uuid(),
-    categoryName: "Home",
+    categoryId: categories[0]._id,
     description: "Eco-friendly laundry detergent",
     price: "12.99",
     name: "Natural Laundry Detergent",
@@ -24,7 +20,7 @@ export const products = [
   },
   {
     id: uuid(),
-    categoryName: "Home",
+    categoryId: categories[0]._id,
     description: "Recycled paper notebook",
     price: "7.99",
     name: "Recycled Paper Notebook",
@@ -32,7 +28,7 @@ export const products = [
   },
   {
     id: uuid(),
-    categoryName: "Home",
+    categoryId: categories[0]._id,
     description: "Soy wax scented candles",
     price: "9.99",
     name: "Soy Wax Candles",
@@ -40,7 +36,7 @@ export const products = [
   },
   {
     id: uuid(),
-    categoryName: "Home",
+    categoryId: categories[0]._id,
     description: "Reusable food storage bags",
     price: "14.99",
     name: "Reusable Food Storage Bags",
@@ -51,7 +47,7 @@ export const products = [
   // Fashion category
   {
     id: uuid(),
-    categoryName: "Fashion",
+    categoryId: categories[1]._id,
     description: "Organic cotton t-shirt",
     price: "19.99",
     name: "Organic Cotton T-Shirt",
@@ -59,7 +55,7 @@ export const products = [
   },
   {
     id: uuid(),
-    categoryName: "Fashion",
+    categoryId: categories[1]._id,
     description: "Recycled denim jeans",
     price: "49.99",
     name: "Recycled Denim Jeans",
@@ -67,7 +63,7 @@ export const products = [
   },
   {
     id: uuid(),
-    categoryName: "Fashion",
+    categoryId: categories[1]._id,
     description: "Bamboo sunglasses",
     price: "29.99",
     name: "Bamboo Sunglasses",
@@ -75,7 +71,7 @@ export const products = [
   },
   {
     id: uuid(),
-    categoryName: "Fashion",
+    categoryId: categories[1]._id,
     description: "Fair trade organic cotton socks",
     price: "8.99",
     name: "Organic Cotton Socks",
@@ -83,7 +79,7 @@ export const products = [
   },
   {
     id: uuid(),
-    categoryName: "Fashion",
+    categoryId: categories[1]._id,
     description: "Handmade vegan leather wallet",
     price: "34.99",
     name: "Vegan Leather Wallet",
@@ -94,7 +90,7 @@ export const products = [
   // Beauty category
   {
     id: uuid(),
-    categoryName: "Beauty",
+    categoryId: categories[2]._id,
     description: "Natural and vegan lip balm",
     price: "8.99",
     name: "Natural Lip Balm",
@@ -102,10 +98,51 @@ export const products = [
   },
   {
     id: uuid(),
-    categoryName: "Beauty",
+    categoryId: categories[2]._id,
     description: "Organic facial cleanser",
     price: "17.99",
     name: "Organic Facial Cleanser",
-    imageSrc: "path/to "
-  }
-]
+    imageSrc: "path/to/facial-cleanser.jpg",
+  },
+  // Add more products in the Beauty category
+
+  // Kitchen category
+  {
+    id: uuid(),
+    categoryId: categories[3]._id,
+    description: "Eco-friendly kitchen supplies and utensils",
+    price: "14.99",
+    name: "Eco-friendly Kitchen Set",
+    imageSrc: "path/to/kitchen-set.jpg",
+  },
+  {
+    id: uuid(),
+    categoryId: categories[3]._id,
+    description: "Reusable silicone food storage bags",
+    price: "9.99",
+    name: "Silicone Food Storage Bags",
+    imageSrc: "path/to/silicone-food-bags.jpg",
+  },
+  // Add more products in the Kitchen category
+
+  // Plants category
+  {
+    id: uuid(),
+    categoryId: categories[4]._id,
+    description: "Indoor potted succulent plant",
+    price: "12.99",
+    name: "Potted Succulent",
+    imageSrc: "path/to/potted-succulent.jpg",
+  },
+  {
+    id: uuid(),
+    categoryId: categories[4]._id,
+    description: "Hanging planters for indoor plants",
+    price: "19.99",
+    name: "Hanging Planters",
+    imageSrc: "path/to/hanging-planters.jpg",
+  },
+  // Add more products in the Plants category
+
+  // Add more categories and products here if needed
+];
