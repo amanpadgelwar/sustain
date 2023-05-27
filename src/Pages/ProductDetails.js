@@ -1,9 +1,9 @@
 
 import { Link, useParams } from "react-router-dom";
-import { products } from "../backend/db/products";
+
 import React,{useState,useEffect} from "react";
 
-import { ProductCard } from "../components/ProductCard";
+
 
 export default function ProductDetail() {
   const { productId } = useParams();
@@ -27,18 +27,31 @@ export default function ProductDetail() {
     datafromServer();
   }, []);
 
-  function getProductDetails(products, productId) {
-    
-    return (products.find((product) => (product.id === productId)));
-    
-  }
+ 
 
-  const product = getProductDetails(products.data, productId);
+ 
 
   return (
     <>
-      <ProductCard {...product} />
-      <Link to="/Category"> See All </Link>
+      <h1>Products</h1>
+      <ul key={products.id}>
+      
+      {products.map((product)=>(
+        <div>
+        <li>{product.name}</li>
+        <li>CategoryName:{product.categoryName}</li>
+    <li>Description{product.description}</li>
+    <li>Price:{product.price}</li>
+  <li>Image:{product.imageSrc}</li>
+  </div>
+      )
+      )
+      }
+
+
+      
+      
+      </ul>
     </>
   );
 }

@@ -1,45 +1,48 @@
-import React,{useState,useEffect} from "react";
-import { categories } from "../backend/db/categories";
-import { ProductCard } from "../components/ProductCard";
-
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import { products } from "../backend/db/products";
+import { CategoryList } from "../components/CategoryList";
 
 export default function Category() {
+  const [categoriesData, setCategoriesData] = useState([]);
 
-const [categories,setCategories]=useState([]);
-
-  const datafromServer=async()=>{
-
-    try{
-      const response= await fetch("/api/categories")
+  const fetchDataFromServer = async () => {
+    try {
+      const response = await fetch("/api/categories");
       const data = await response.json();
-      setCategories(data.categories);
-
-    }
-    catch(e){
-      console.error(e)
-
-
+      setCategoriesData(data.categories);
+    } catch (e) {
+      console.error(e);
     }
   }
+
   useEffect(() => {
-    datafromServer();
+    fetchDataFromServer();
   }, []);
+
+  const getProductByCategory = (categoryId) => {
+    return products.filter((product) => product.categoryId === categoryId);
+  }
+  
+ 
+
 
   return (
     <>
-    <h1> Categories </h1>
-      {
-        categories.map((item)=>(
-       <ul>{
-        <>
-        <li key={item.id}>{item.categoryName}</li>
-        <ProductCard {...item} noDetail/>
-        </>
-       }</ul>
-      ))
-      }
-</>
-  
-    
+      <h1>Categories</h1>
+      {categoriesData.map((category) => (
+        <div key={category._id}>
+          <h1>{category.categoryName}</h1>
+          <h3>{category.description}</h3>
+          <h3>{category.imageSrc}</h3>
+          
+          <CategoryList filteredCategory={getProductByCategory(category.id)} noDetail />
+          
+         
+        </div>
+      ))}
+      <Link to="/ProductDetails">See All Products</Link>
+    </>
   );
-}
+  
+      }
