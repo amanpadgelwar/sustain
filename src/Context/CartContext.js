@@ -28,14 +28,42 @@ export function CartProvider({ children }) {
       
 
     const addToWishlist=item=>{
-setWishList((wishList)=>[...wishList,item])
+        const existingItemIndex=wishList.findIndex((wishListItem)=>wishListItem.id===item.id);
+      if(existingItemIndex!== -1){
+         // Item already exists in the cart, update the quantity
+         const updatedWishList=[...wishList];
+         updatedWishList[existingItemIndex].quantity += 1;
+        setWishList(updatedWishList)
+        
+      }
+      else{
+
+        // Item doesn't exist in the cart, add it with quantity 1
+        setWishList((wishList)=>[...wishList,{...item,quantity:1}]);
+
+      }
 
     }
     
+    
+    
+    const removeFromWishList=item=>
+    {
+        const updatedWishList=wishList.filter((wishListItem)=>wishListItem.id !==item.id)      
+        setWishList(updatedWishList)
+    }
+    
+
+
+
+
+
+
+
   return (
     <CartContext.Provider
       value={{
-        cart,addToCart,wishList,addToWishlist,removeFromCart
+        cart,wishList,addToCart,addToWishlist,removeFromCart,removeFromWishList
       }}
     >
       {children}

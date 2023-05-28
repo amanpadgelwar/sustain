@@ -1,17 +1,22 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useContext } from 'react';
 import { CartContext } from '..';
 
 export default function WishList( ) {
-  const {wishList} = useContext(CartContext);
-
+  const {wishList,removeFromWishList} = useContext(CartContext);
+  const [wishListItems,setWishListItems]=useState(wishList)
   
+  const handleRemove=(item)=>{
+ removeFromWishList(item)
+
+setWishListItems((prevWishListItem)=>prevWishListItem.filter((setWishListItems)=>setWishListItems.id !== item.id))
+  }
 
   return (
     
     <div>
-      <h3>Items in your cart {wishList.length} </h3>
-      {wishList.map((item) => (
+      <h3>Items in your wishList {wishListItems.length} </h3>
+      {wishListItems.map((item) => (
         <div
           style={{
             border: "1px solid black",
@@ -21,8 +26,8 @@ export default function WishList( ) {
         >
           <p>{item.name}</p>
          <p>{item.description}</p> 
-          {item.price}
-          
+          <p>{item.price}</p>
+          <button onClick={() => handleRemove(item)}>Remove from WishList</button>
     </div>
     
     ))}
