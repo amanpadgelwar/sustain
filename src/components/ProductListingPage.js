@@ -6,13 +6,13 @@ export default function ProductListingPage() {
   const [filteredProducts, setFilteredProducts] = useState([]);
   const { categoryId } = useParams();
 
-  const location = useLocation();
-  const { cart: pageCart, onAddToCart: pageHandleAddToCart } = location.state || {};
+  
 
-  const [cart, setCart] = useState(pageCart || []);
-  const [wishlist, setWishlist] = useState([]);
+  
+  
 
   const { addToCart } = useContext(CartContext);
+ const {addToWishlist} =useContext(CartContext);
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -35,24 +35,12 @@ export default function ProductListingPage() {
     fetchProducts();
   }, [categoryId]);
 
-  const handleAddToCart = (productId) => {
-    // Find the selected product by ID
-    const selectedProduct = filteredProducts.find((product) => product.id === productId);
+  
 
-    // Add the product to the cart state
-    setCart((prevCart) => [...prevCart, selectedProduct]);
-    if (pageHandleAddToCart) {
-      pageHandleAddToCart(productId);
-    }
-  };
+  
 
-  const handleAddToWishlist = (productId) => {
-    // Find the selected product by ID
-    const selectedProduct = filteredProducts.find((product) => product.id === productId);
-
-    // Add the product to the wishlist state
-    setWishlist((prevWishlist) => [...prevWishlist, selectedProduct]);
-  };
+  
+ 
 
   return (
     <>
@@ -62,12 +50,12 @@ export default function ProductListingPage() {
           {filteredProducts.map((product) => (
             <div key={product.id}>
               <h2>{product.name}</h2>
-              <p>CategoryName: {product.categoryName}</p>
+              
               <p>Description: {product.description}</p>
               <p>Price: {product.price}</p>
               <p>Image: {product.imageSrc}</p>
               <button onClick={() => addToCart(product)}>Add to Cart</button>
-              <button onClick={() => handleAddToWishlist(product.id)}>Add to Wishlist</button>
+              <button onClick={() => addToWishlist(product)}>Add to Wishlist</button>
             </div>
           ))}
         </ul>

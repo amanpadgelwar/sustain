@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import ProductListingPage from "../components/ProductListingPage"
+
+
+
 export default function Category() {
+  
   const [categoriesData, setCategoriesData] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
   const { categoryId } = useParams();
@@ -46,8 +49,7 @@ export default function Category() {
   const getCategoryById = (id) => {
     return categoriesData.find((category) => category._id === id);
   };
-  const handleAddToCart=()=>
-  { return(5)}
+ 
  
   return (
     <>
@@ -88,7 +90,7 @@ export default function Category() {
             <h3>{category.description}</h3>
             <img src={category.imageSrc} alt="Category" />
             <Link to={`/products/${category._id}`}>Explore Category</Link>
-            <ProductListingPage  onAddToCart={handleAddToCart} /> 
+            
           </div>
         ))
       )}

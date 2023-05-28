@@ -1,23 +1,32 @@
 import React from 'react';
+import { useContext } from 'react';
+import { CartContext } from '..';
 
-export default function Wishlist({ wishlist }) {
+export default function WishList( ) {
+  const {wishList} = useContext(CartContext);
+
+  
+
   return (
+    
     <div>
-      <h2>Wishlist</h2>
-      {wishlist.length > 0 ? (
-        <ul>
-          {wishlist.map((product) => (
-            <li key={product.id}>
-              <h3>{product.name}</h3>
-              <p>Price: {product.price}</p>
-              <p>Description: {product.description}</p>
-              {/* Add other relevant information */}
-            </li>
-          ))}
-        </ul>
-      ) : (
-        <p>Your wishlist is empty.</p>
-      )}
+      <h3>Items in your cart {wishList.length} </h3>
+      {wishList.map((item) => (
+        <div
+          style={{
+            border: "1px solid black",
+            margin: "0.5rem",
+            padding: "0.5rem"
+          }}
+        >
+          <p>{item.name}</p>
+         <p>{item.description}</p> 
+          {item.price}
+          
     </div>
-  );
-}
+    
+    ))}
+    
+  </div>
+
+      )}
