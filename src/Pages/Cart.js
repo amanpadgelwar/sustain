@@ -1,32 +1,47 @@
-import React from 'react';
-import { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { CartContext } from '..';
 
-export default function Cart( ) {
-  const {cart} = useContext(CartContext);
+export default function Cart() {
+  const { cart, removeFromCart } = useContext(CartContext);
+  const [cartItems, setCartItems] = useState(cart);
 
-  
+  const handleIncrement = (item) => {
+    const updatedCart = cartItems.map((cartItem) => {
+      if (cartItem.id === item.id) {
+        return { ...cartItem, quantity: cartItem.quantity + 1 };
+      }
+      return cartItem;
+    });
+    setCartItems(updatedCart);
+  };
+
+  const handleDecrement = (item) => {
+    const updatedCart = cartItems.map((cartItem) => {
+      if (cartItem.id === item.id) {
+        return { ...cartItem, quantity: cartItem.quantity - 1 };
+      }
+      return cartItem;
+    });
+    setCartItems(updatedCart);
+  };
+  const handleRemove = (item) => {
+    removeFromCart(item);
+    setCartItems((prevCartItems) => prevCartItems.filter((cartItem) => cartItem.id !== item.id));
+  };
 
   return (
-    
     <div>
-      <h3>Items in your cart {cart.length} </h3>
-      {cart.map((item) => (
-        <div
-          style={{
-            border: "1px solid black",
-            margin: "0.5rem",
-            padding: "0.5rem"
-          }}
-        >
+      <h3>Items in your cart: {cartItems.length}</h3>
+      {cartItems.map((item) => (
+        <div key={item.id}>
           <p>{item.name}</p>
-         <p>{item.description}</p> 
-          {item.price}
+          <p>Quantity: {item.quantity}</p>
+          <button onClick={() => handleIncrement(item)}>+</button>
+          <button onClick={() => handleDecrement(item)}>-</button>
+          <button onClick={() => handleRemove(item)}>Remove from Cart</button>
           
+        </div>
+      ))}
     </div>
-    
-    ))}
-    
-  </div>
-
-      )}
+  );
+}
