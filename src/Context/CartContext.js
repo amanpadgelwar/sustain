@@ -50,7 +50,7 @@ export function CartProvider({ children }) {
     const removeFromWishList=item=>
     {
         const updatedWishList=wishList.filter((wishListItem)=>wishListItem.id !==item.id)      
-        setWishList(updatedWishList)
+        setWishList(updatedWishList);
     }
     
 
