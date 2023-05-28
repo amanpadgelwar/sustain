@@ -6,6 +6,9 @@ import { makeServer } from "./server";
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { BrowserRouter as Router } from "react-router-dom";
+import {CartContext,CartProvider} from "./Context/CartContext"
+
+export {CartContext}
 
 // Call make Server
 makeServer();
@@ -15,7 +18,9 @@ ReactDOM.render(
   
   
 <Router>
+<CartProvider>
 <App />
+</CartProvider>
 </Router>
     
   </React.StrictMode>,

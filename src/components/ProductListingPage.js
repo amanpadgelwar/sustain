@@ -1,5 +1,6 @@
 import { useParams, useLocation } from 'react-router-dom';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
+import { CartContext } from '../Context/CartContext';
 
 export default function ProductListingPage() {
   const [filteredProducts, setFilteredProducts] = useState([]);
@@ -10,6 +11,8 @@ export default function ProductListingPage() {
 
   const [cart, setCart] = useState(pageCart || []);
   const [wishlist, setWishlist] = useState([]);
+
+  const { addToCart } = useContext(CartContext);
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -63,7 +66,7 @@ export default function ProductListingPage() {
               <p>Description: {product.description}</p>
               <p>Price: {product.price}</p>
               <p>Image: {product.imageSrc}</p>
-              <button onClick={() => handleAddToCart(product.id)}>Add to Cart</button>
+              <button onClick={() => addToCart(product)}>Add to Cart</button>
               <button onClick={() => handleAddToWishlist(product.id)}>Add to Wishlist</button>
             </div>
           ))}
