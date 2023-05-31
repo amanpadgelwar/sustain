@@ -3,13 +3,21 @@ import { useContext } from 'react';
 import { CartContext } from '..';
 
 export default function WishList( ) {
-  const {wishList,removeFromWishList} = useContext(CartContext);
+  const {wishList,removeFromWishList,moveToCart} = useContext(CartContext);
   const [wishListItems,setWishListItems]=useState(wishList)
   
+
   const handleRemove=(item)=>{
  removeFromWishList(item)
 
 setWishListItems((prevWishListItem)=>prevWishListItem.filter((setWishListItems)=>setWishListItems.id !== item.id))
+  }
+
+  const handleMove=(item)=>{
+
+
+    moveToCart(item)
+    setWishListItems((prevWishListItem)=>prevWishListItem.filter((setWishListItems)=>setWishListItems.id !== item.id))
   }
 
   return (
@@ -28,6 +36,7 @@ setWishListItems((prevWishListItem)=>prevWishListItem.filter((setWishListItems)=
          <p>{item.description}</p> 
           <p>{item.price}</p>
           <button onClick={() => handleRemove(item)}>Remove from WishList</button>
+          <button onClick={() => handleMove(item)}>Move  to Cart </button>
     </div>
     
     ))}

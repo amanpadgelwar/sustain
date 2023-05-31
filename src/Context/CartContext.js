@@ -53,7 +53,21 @@ export function CartProvider({ children }) {
         setWishList(updatedWishList);
     }
     
+    const moveToCart=item=>{
+      const existingItemIndex = cart.findIndex((cartItem) => cartItem.id === item.id);
+      
+        if (existingItemIndex !== -1) {
+          // Item already exists in the cart, update the quantity
+          const updatedCart = [...cart];
+          updatedCart[existingItemIndex].quantity += 1;
+          setCart(updatedCart);
+        } else {
+          // Item doesn't exist in the cart, add it with quantity 1
+          setCart((cart) => [...cart, { ...item, quantity: 1 }]);
+        }
 
+    
+    }
 
 
 
@@ -63,7 +77,7 @@ export function CartProvider({ children }) {
   return (
     <CartContext.Provider
       value={{
-        cart,wishList,addToCart,addToWishlist,removeFromCart,removeFromWishList
+        cart,wishList,addToCart,addToWishlist,removeFromCart,removeFromWishList,moveToCart
       }}
     >
       {children}
