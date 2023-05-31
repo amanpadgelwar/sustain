@@ -33,6 +33,10 @@ function App() {
           Cart
         </NavLink>
         {" || "}
+        <NavLink style={getActiveStyle} to="/productdetails">
+          All Products
+        </NavLink>
+        {" || "}
         <NavLink style={getActiveStyle} to="/wishlist">
           WishList
         </NavLink>

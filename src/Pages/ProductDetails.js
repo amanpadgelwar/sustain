@@ -6,9 +6,12 @@ import React,{useState,useEffect} from "react";
 
 
 export default function ProductDetail() {
-  const { productId } = useParams();
+  
   const [products,setProducts]=useState([]);
-
+  const [price,setPrice]=useState(1000);
+  const [filteredProducts,setFilteredProducts]=useState([]);
+  const [minPrice,setMinPrice]=useState(0);
+  const [maxPrice,setMaxPrice]=useState(150)
   const datafromServer=async()=>{
 
     try{
@@ -23,36 +26,56 @@ export default function ProductDetail() {
 
     }
   }
+  const filteredProductsByPrice=()=>{
+    const filteredProduct =products.filter((product)=>product.price >=minPrice && product.price<=maxPrice)
+    setFilteredProducts(filteredProduct);
+
+  }
+
   useEffect(() => {
     datafromServer();
   }, []);
 
- 
+ useEffect(()=>{filteredProductsByPrice();},[minPrice,maxPrice,products]);
 
  
 
-  return (
-    <>
-      <h1>Products</h1>
-      <ul key={products.id}>
-      
-      {products.map((product)=>(
-        <div>
-        <h2>{product.name}
-        <p>CategoryName:{product.categoryName}</p>
-    <p>Description:{product.description}</p>
-    <p>Price:{product.price}</p>
-    <p>Image:{product.imageSrc}</p>
-  </h2>
-  </div>
-      )
-      )
-      }
-
-
-      
-      
-      </ul>
-    </>
-  );
+ return (
+  <>
+    <h1>Products</h1>
+    <div>
+      <label htmlFor="priceRange">Price Range:Minimum</label>
+      <input
+        type="range"
+        id="priceRange"
+        min={0}
+        max={100}
+        value={minPrice}
+        onChange={(e) => setMinPrice(parseInt(e.target.value))}
+      />
+    </div>
+    <div>
+      <label htmlFor="priceRange">Price Range:Maximum</label>
+      <input
+        type="range"
+        id="priceRange"
+        min={0}
+        max={100}
+        value={maxPrice}
+        onChange={(e) => setMaxPrice(parseInt(e.target.value))}
+      />
+    </div>
+    <ul>
+      {filteredProducts.map((product) => (
+        <div key={product.id}>
+          <h2>{product.name}</h2>
+          <p>CategoryName: {product.categoryName}</p>
+          <p>Description: {product.description}</p>
+          <p>Price: {product.price}</p>
+          <p>Image: {product.imageSrc}</p>
+        </div>
+      ))}
+    </ul>
+  </>
+);
 }
