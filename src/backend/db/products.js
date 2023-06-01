@@ -1,6 +1,15 @@
 import { v4 as uuid } from "uuid";
 
 import { categories } from "./categories";
+
+export const categoriesNames = [
+  { _id: "1", categoryName: "Home" },
+  { _id: "2", categoryName: "Fashion" },
+  { _id: "3", categoryName: "Beauty" },
+  { _id: "4", categoryName: "Kitchen" },
+  { _id: "5", categoryName: "Plants" },
+  // Add more categories if needed
+];
 export const products = [
   {
     id: uuid(),
