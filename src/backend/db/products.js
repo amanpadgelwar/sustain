@@ -2,18 +2,12 @@ import { v4 as uuid } from "uuid";
 
 import { categories } from "./categories";
 
-export const categoriesNames = [
-  { _id: "1", categoryName: "Home" },
-  { _id: "2", categoryName: "Fashion" },
-  { _id: "3", categoryName: "Beauty" },
-  { _id: "4", categoryName: "Kitchen" },
-  { _id: "5", categoryName: "Plants" },
-  // Add more categories if needed
-];
+
 export const products = [
   {
     id: uuid(),
     categoryId: categories[0]._id,
+    categoryName: "Home",
     description: "Reusable bamboo toothbrush",
     price: "5.99",
     name: "Bamboo Toothbrush",
@@ -22,6 +16,7 @@ export const products = [
   {
     id: uuid(),
     categoryId: categories[0]._id,
+    categoryName: "Home",
     description: "Eco-friendly laundry detergent",
     price: "12.99",
     name: "Natural Laundry Detergent",
@@ -30,6 +25,7 @@ export const products = [
   {
     id: uuid(),
     categoryId: categories[0]._id,
+    categoryName: "Home",
     description: "Recycled paper notebook",
     price: "7.99",
     name: "Recycled Paper Notebook",
@@ -38,6 +34,7 @@ export const products = [
   {
     id: uuid(),
     categoryId: categories[0]._id,
+    categoryName: "Home",
     description: "Soy wax scented candles",
     price: "9.99",
     name: "Soy Wax Candles",
@@ -46,6 +43,7 @@ export const products = [
   {
     id: uuid(),
     categoryId: categories[0]._id,
+    categoryName: "Home",
     description: "Reusable food storage bags",
     price: "14.99",
     name: "Reusable Food Storage Bags",
@@ -57,6 +55,7 @@ export const products = [
   {
     id: uuid(),
     categoryId: categories[1]._id,
+    categoryName: "Fashion",
     description: "Organic cotton t-shirt",
     price: "19.99",
     name: "Organic Cotton T-Shirt",
@@ -65,6 +64,7 @@ export const products = [
   {
     id: uuid(),
     categoryId: categories[1]._id,
+    categoryName: "Fashion",
     description: "Recycled denim jeans",
     price: "49.99",
     name: "Recycled Denim Jeans",
@@ -73,6 +73,7 @@ export const products = [
   {
     id: uuid(),
     categoryId: categories[1]._id,
+    categoryName: "Fashion",
     description: "Bamboo sunglasses",
     price: "29.99",
     name: "Bamboo Sunglasses",
@@ -81,6 +82,7 @@ export const products = [
   {
     id: uuid(),
     categoryId: categories[1]._id,
+    categoryName: "Fashion",
     description: "Fair trade organic cotton socks",
     price: "8.99",
     name: "Organic Cotton Socks",
@@ -89,6 +91,7 @@ export const products = [
   {
     id: uuid(),
     categoryId: categories[1]._id,
+    categoryName: "Fashion",
     description: "Handmade vegan leather wallet",
     price: "34.99",
     name: "Vegan Leather Wallet",
@@ -100,6 +103,7 @@ export const products = [
   {
     id: uuid(),
     categoryId: categories[2]._id,
+    categoryName: "Beauty" ,
     description: "Natural and vegan lip balm",
     price: "8.99",
     name: "Natural Lip Balm",
@@ -108,6 +112,7 @@ export const products = [
   {
     id: uuid(),
     categoryId: categories[2]._id,
+    categoryName: "Beauty" ,
     description: "Organic facial cleanser",
     price: "17.99",
     name: "Organic Facial Cleanser",
@@ -119,6 +124,7 @@ export const products = [
   {
     id: uuid(),
     categoryId: categories[3]._id,
+    categoryName: "Kitchen",
     description: "Eco-friendly kitchen supplies and utensils",
     price: "14.99",
     name: "Eco-friendly Kitchen Set",
@@ -127,6 +133,7 @@ export const products = [
   {
     id: uuid(),
     categoryId: categories[3]._id,
+    categoryName: "Kitchen",
     description: "Reusable silicone food storage bags",
     price: "9.99",
     name: "Silicone Food Storage Bags",
@@ -138,6 +145,7 @@ export const products = [
   {
     id: uuid(),
     categoryId: categories[4]._id,
+    categoryName: "Plants" ,
     description: "Indoor potted succulent plant",
     price: "12.99",
     name: "Potted Succulent",
@@ -146,6 +154,7 @@ export const products = [
   {
     id: uuid(),
     categoryId: categories[4]._id,
+    categoryName: "Plants" ,
     description: "Hanging planters for indoor plants",
     price: "19.99",
     name: "Hanging Planters",

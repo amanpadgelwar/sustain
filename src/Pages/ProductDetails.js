@@ -63,6 +63,7 @@ export default function ProductDetail() {
     <>
       <h1>Products</h1>
       <div>
+      <h2>Filters</h2>
         <label htmlFor="priceRange">Price Range:Minimum</label>
         <input
           type="range"
@@ -74,6 +75,7 @@ export default function ProductDetail() {
         />
       </div>
       <div>
+     
         <label htmlFor="priceRange">Price Range:Maximum</label>
         <input
           type="range"
@@ -84,6 +86,7 @@ export default function ProductDetail() {
           onChange={(e) => setMaxPrice(parseInt(e.target.value))}
         />
       </div>
+      
       <div>
         <select value={selectedCategory} onChange={(e) => handleCategoryChange(e)}>
           <option value="all">All</option>
