@@ -13,10 +13,10 @@ export default function ProductDetail() {
     try {
       const response = await fetch("/api/products");
       const data = await response.json();
-      console.log(data); // Check the data object
+      
       setProducts(data.products);
-      setCategoryName(data.categoriesNames);
-      console.log(data.categoriesNames);
+      
+    
     } catch (e) {
       console.error(e);
     }
@@ -41,7 +41,7 @@ export default function ProductDetail() {
       const filteredProduct =
         categoryValue === "all"
           ? products
-          : products.filter((product) => product.categoryId === categoryValue);
+          : products.filter((product) => product.categoryName  === categoryValue);
       setFilteredProducts(filteredProduct);
     }
   };
@@ -56,9 +56,15 @@ export default function ProductDetail() {
   }, [minPrice, maxPrice, products]);
 
   useEffect(() => {
-    handleCategoryChange(null);
-  }, [selectedCategory, products]);
+    // Get unique category names
+    const uniqueCategories = Array.from(new Set(products.map((product) => product.categoryName)));
 
+    // Set the first category as the selected category
+    setSelectedCategory(uniqueCategories.length > 0 ? uniqueCategories[0] : "all");
+
+    // Set the unique category names
+    setCategoryName(uniqueCategories);
+  }, [products]);
   return (
     <>
       <h1>Products</h1>
@@ -90,10 +96,9 @@ export default function ProductDetail() {
       <div>
         <select value={selectedCategory} onChange={(e) => handleCategoryChange(e)}>
           <option value="all">All</option>
-          {categoryName &&
-            categoryName.map((category) => (
-              <option key={category._id} value={category._id}>
-                {category.categoryName}
+          {categoryName.map((category) => (
+              <option key={category} value={category}>
+                {category}
               </option>
             ))}
         </select>
