@@ -7,7 +7,9 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { BrowserRouter as Router } from "react-router-dom";
 import {CartContext,CartProvider} from "./Context/CartContext"
-
+import { DataContextProvider } from "./Context/DataContext";
+import { AuthContextProvider } from "./Context/Auth";
+import {AddressContextProvider} from "./Context/AddressContext";
 export {CartContext}
 
 // Call make Server
