@@ -97,4 +97,3 @@ export const guestLoginhandler= async(setEmail,setPassword,setIsLoggedIn,dispatc
         }
       }
     };
-}
