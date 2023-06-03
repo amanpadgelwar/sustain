@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useReducer, useState } from "react";
-import { AddressReducer,initialState } from "../../Reducers/AddressReducer";
+import { AddressReducer,initialState } from "../Reducers/";
 
 export const AddressContext = createContext();
 
