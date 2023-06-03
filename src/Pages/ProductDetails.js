@@ -65,6 +65,10 @@ export default function ProductDetail() {
     // Set the unique category names
     setCategoryName(uniqueCategories);
   }, [products]);
+
+  if (products.length === 0) {
+    return <div>Loading...</div>; // or any other loading indicator
+  }
   return (
     <>
       <h1>Products</h1>
